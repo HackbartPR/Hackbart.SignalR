@@ -19,6 +19,6 @@ if (app.Environment.IsDevelopment())
 }
 
 // Registrando os Hubs
-app.MapHub<HubA>("/hubs/huba");
+app.MapHub<ChatHub>("/hubs/chathub");
 
 app.Run();

@@ -16,7 +16,7 @@ namespace ClientA
         public Client()
         {
             _clientName = "Cliente A";
-            _connection = new HubConnectionBuilder().WithUrl("https://localhost:7056/hubs/huba").Build();
+            _connection = new HubConnectionBuilder().WithUrl("https://localhost:7056/hubs/chathub").Build();
         }
 
         /// <summary>
