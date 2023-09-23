@@ -20,7 +20,7 @@
         /// <param name="group"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task AddToGroup(CancellationToken cancellationToken = new());
+        Task AddToGroup(string group, CancellationToken cancellationToken = new());
 
         /// <summary>
         /// Cliente sai de um grupo específico
@@ -28,6 +28,6 @@
         /// <param name="group"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task RemoveFromGroup(CancellationToken cancellationToken = new());
+        Task RemoveFromGroup(string group, CancellationToken cancellationToken = new());
     }
 }
