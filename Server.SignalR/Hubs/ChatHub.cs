@@ -14,7 +14,7 @@ namespace Server.SignalR.Hubs
         /// <param name="sender"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public async Task SendMessage(string sender, string message)
+        public async Task SendMessageToAll(string sender, string message)
             => await Clients.All.ReceiveMessage(sender, message, new CancellationToken());
 
         /// <summary>

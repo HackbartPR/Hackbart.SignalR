@@ -7,13 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{781C08
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{EC960167-CD93-4D27-BFA5-71CD303E04DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.SignalR", "API.SignalR\API.SignalR.csproj", "{479B4E9F-434B-4D02-ABD8-02A05D146518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.SignalR", "API.SignalR\API.SignalR.csproj", "{479B4E9F-434B-4D02-ABD8-02A05D146518}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.SignalR", "Server.SignalR\Server.SignalR.csproj", "{AADDC359-A9B1-403D-BCB3-C9B8952C1291}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.SignalR", "Server.SignalR\Server.SignalR.csproj", "{AADDC359-A9B1-403D-BCB3-C9B8952C1291}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientA", "ClientA\ClientA.csproj", "{215E68AD-0B49-4E23-B542-59B9C7BFA308}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientA", "ClientA\ClientA.csproj", "{215E68AD-0B49-4E23-B542-59B9C7BFA308}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientB", "ClientB\ClientB.csproj", "{74FE5610-5120-41BF-8282-98C5EA98D98A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientB", "ClientB\ClientB.csproj", "{74FE5610-5120-41BF-8282-98C5EA98D98A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
