@@ -1,8 +1,8 @@
-﻿using ClientA.Domain.Configurations;
-using ClientA.SignalR.Provider;
-using ClientA.SignalR.Service;
-using ClientA.SignalR.Service.Abstraction;
-using ClientA.Worker;
+﻿using ClientC.Domain.Configurations;
+using ClientC.SignalR.Provider;
+using ClientC.SignalR.Service;
+using ClientC.SignalR.Service.Abstraction;
+using ClientC.Worker;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

@@ -1,10 +1,10 @@
-﻿using ClientA.Domain.Configurations;
-using ClientA.Domain.Constants;
-using ClientA.SignalR.Provider;
-using ClientA.SignalR.Service.Abstraction;
+﻿using ClientB.Domain.Configurations;
+using ClientB.Domain.Constants;
+using ClientB.SignalR.Provider;
+using ClientB.SignalR.Service.Abstraction;
 using Microsoft.AspNetCore.SignalR.Client;
 
-namespace ClientA.SignalR.Service
+namespace ClientB.SignalR.Service
 {
     /// <summary>
     /// Provedor de acesso ao Hub
