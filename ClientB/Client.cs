@@ -32,9 +32,9 @@ namespace ClientB
 
                 var responseReceived = new TaskCompletionSource<bool>();
 
-                _connection.On<string>("ReceberMensagem", ShowAndSendMessage);
+                _connection.On<string, string>("ReceiveMessage", ShowAndSendMessage);
 
-                await _connection.InvokeAsync("EnviarMensagem", $"{_clientName}: *");
+                await _connection.InvokeAsync("SendMessageToAll", $"{_clientName}: *", "Teste");
 
                 await responseReceived.Task;
             }
@@ -47,13 +47,12 @@ namespace ClientB
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        private async Task ShowAndSendMessage(string message)
+        private async Task ShowAndSendMessage(string sender, string message)
         {
             Console.WriteLine(message);
-            await Task.Delay(2000);
 
             string response = message.Split(": ")[1] + "*";
-            await _connection.InvokeAsync("EnviarMensagem", $"{_clientName}: {response}");
+            await _connection.InvokeAsync("SendMessageToAll", $"{_clientName}: {response}", "Teste");
         }
 
         /// <summary>
