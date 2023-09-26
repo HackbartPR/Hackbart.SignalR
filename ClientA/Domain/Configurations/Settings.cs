@@ -34,11 +34,11 @@ namespace ClientA.Domain.Configurations
         {
             HubProvider = new HubProvider
             {
-                Url = configuration.GetSection("HubService:Url").Value
+                Url = configuration.GetSection("HubService:Url").Value!
             };
             Application = new Application
             {
-                ClientName = configuration.GetSection("Application:ClientName").Value
+                ClientName = configuration.GetSection("Application:ClientName").Value!
             };
         }
     }

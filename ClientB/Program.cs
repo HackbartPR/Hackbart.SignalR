@@ -1,7 +1,7 @@
 ﻿using ClientB;
 
 Console.WriteLine("Cliente B");
-await Task.Delay(4000);
+await Task.Delay(500);
 
 await using (Client client = new())
 {
