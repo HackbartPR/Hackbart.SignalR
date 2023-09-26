@@ -38,5 +38,21 @@ namespace Server.SignalR.Hubs
         /// <returns></returns>
         public async Task SendMessageToGroup(string group, string sender, string message)
             => await Clients.Group(group).ReceiveMessage(sender, message, new CancellationToken());
+
+        /// <summary>
+        /// Cliente entra em um grupo\canal de comunicação específico
+        /// </summary>
+        /// <param name="group"></param>
+        /// <returns></returns>
+        public async Task AddToGroup(string group)
+            => await Groups.AddToGroupAsync(Context.ConnectionId, group);
+
+        /// <summary>
+        /// Cliente sai em um grupo\canal de comunicação específico
+        /// </summary>
+        /// <param name="group"></param>
+        /// <returns></returns>
+        public async Task RemoveFromGroup(string group)
+            => await Groups.RemoveFromGroupAsync(Context.ConnectionId, group);
     }
 }

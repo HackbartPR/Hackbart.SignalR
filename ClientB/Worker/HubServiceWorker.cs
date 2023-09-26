@@ -1,9 +1,9 @@
-﻿using ClientA.SignalR.Service.Abstraction;
+﻿using ClientB.SignalR.Service.Abstraction;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace ClientA.Worker
+namespace ClientB.Worker
 {
     /// <summary>
     /// Será responsável por 'hospedar' o Hub Cliente.
