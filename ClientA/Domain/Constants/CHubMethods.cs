@@ -6,7 +6,7 @@
     public static class CHubMethods
     {
         #region - ENVIAR MENSAGEM
-        public const string SEND_MESSAGE_TO_ALL = "SendMessage";
+        public const string SEND_MESSAGE_TO_ALL = "SendMessageToAll";
 
         public const string SEND_MESSAGE_TO_CALLER = "SendMessageToCaller";
 

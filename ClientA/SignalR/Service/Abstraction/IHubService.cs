@@ -26,5 +26,12 @@
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         Task RemoveFromGroup(string group, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Cliente fica esperando receber mensagem
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task Listening(CancellationToken cancellationToken);
     }
 }

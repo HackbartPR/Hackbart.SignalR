@@ -23,6 +23,9 @@ namespace ClientA.SignalR.Service
         {
             _sender = Settings.Application.ClientName;
             _provider = provider ?? throw new ArgumentNullException(nameof(provider));
+
+            CancellationToken cancellationToken = new(); 
+            _provider.Connection.StartAsync(cancellationToken).Wait();
         }
 
         //Gerencia qual método deve utilizar para enviar a mensagem
@@ -43,7 +46,7 @@ namespace ClientA.SignalR.Service
                 if (message == string.Empty || method == string.Empty)
                     throw new Exception("Campos obrigatórios não preenchidos");
 
-                await _provider.Connection.StartAsync(cancellationToken);
+                //await _provider.Connection.StartAsync(cancellationToken);
 
                 switch (method)
                 {
@@ -58,10 +61,8 @@ namespace ClientA.SignalR.Service
                         break;
                 }
 
-                await _provider.Connection.StopAsync(cancellationToken);
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
-            finally { await _provider.Connection.StopAsync(); }
         }
 
         /// <summary>
@@ -129,6 +130,24 @@ namespace ClientA.SignalR.Service
             await _provider.Connection.StartAsync(cancellationToken);
             await _provider.Connection.InvokeAsync(CHubMethods.REMOVE_TO_GROUP, group, cancellationToken);
             await _provider.Connection.StopAsync(cancellationToken);
+        }
+
+        /// <summary>
+        /// Método para ouvir as mensagens
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task Listening(CancellationToken cancellationToken)
+        {
+            //await _provider.Connection.StartAsync(cancellationToken);
+            var responseReceived = new TaskCompletionSource<bool>();
+
+            _provider.Connection.On<string, string>("ReceiveMessage", (sender, message) =>
+            {
+                Console.WriteLine($"{sender}: {message}\n");
+            });
+
+            await responseReceived.Task;
         }
 
         /// <summary>
