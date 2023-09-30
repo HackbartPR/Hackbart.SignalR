@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Server.SignalR.Domain.Configurations;
 
 namespace Server.SignalR
 {
@@ -14,7 +15,14 @@ namespace Server.SignalR
         /// <returns></returns>
         public static IServiceCollection RegisterSignalR(this IServiceCollection services)
         {
-            services.AddSignalR();
+            // Utilizando Redis como Backplane (Mensagens só funcionarão com a conexão Redis)
+            services.AddSignalR().AddStackExchangeRedis($"{Settings.Redis.Server}:{Settings.Redis.Port},password={Settings.Redis.Password}", options => {
+                options.Configuration.ChannelPrefix = "SignalR.Hackbart";
+            });
+
+            // Não utilizando Redis como Backplane (MEnsagens funcionarão corretamente)
+            //services.AddSignalR();
+
             return services;
         }
     }
