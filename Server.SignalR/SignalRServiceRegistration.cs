@@ -16,12 +16,12 @@ namespace Server.SignalR
         public static IServiceCollection RegisterSignalR(this IServiceCollection services)
         {
             // Utilizando Redis como Backplane (Mensagens só funcionarão com a conexão Redis)
-            services.AddSignalR().AddStackExchangeRedis($"{Settings.Redis.Server}:{Settings.Redis.Port},password={Settings.Redis.Password}", options => {
-                options.Configuration.ChannelPrefix = "SignalR.Hackbart";
-            });
+            //services.AddSignalR().AddStackExchangeRedis($"{Settings.Redis.Server}:{Settings.Redis.Port},password={Settings.Redis.Password}", options => {
+            //    options.Configuration.ChannelPrefix = "SignalR.Hackbart";
+            //});
 
             // Não utilizando Redis como Backplane (MEnsagens funcionarão corretamente)
-            //services.AddSignalR();
+            services.AddSignalR();
 
             return services;
         }

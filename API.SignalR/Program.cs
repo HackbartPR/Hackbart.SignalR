@@ -1,6 +1,9 @@
+using API.SignalR.Worker;
 using Server.SignalR;
 using Server.SignalR.Domain.Configurations;
 using Server.SignalR.Hubs;
+using Server.SignalR.Hubs.Abstractions;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +13,8 @@ Settings.Configure(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.RegisterSignalR();
+builder.Services.AddTransient<IChatMiddlewareHub, MiddlewareHub>();
+builder.Services.AddHostedService<Updater>();
 
 var app = builder.Build();
 

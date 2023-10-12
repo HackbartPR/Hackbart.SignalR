@@ -1,12 +1,9 @@
-﻿using Microsoft.AspNetCore.SignalR;
-using Server.SignalR.Hubs.Abstractions;
-
-namespace Server.SignalR.Hubs
+﻿namespace Server.SignalR.Hubs.Abstractions
 {
     /// <summary>
-    /// Hub
+    /// Define o nome dos métodos de envio de mensagens
     /// </summary>
-    public class ChatHub : Hub<IChatClient>, IChatServer
+    public interface IChatServer
     {
         /// <summary>
         /// Cliente\Servidor envia mensagem para todos conectados
@@ -14,8 +11,7 @@ namespace Server.SignalR.Hubs
         /// <param name="sender"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public async Task SendMessageToAll(string sender, string message)
-            => await Clients.All.ReceiveMessage(sender, message, new CancellationToken());
+        public Task SendMessageToAll(string sender, string message);
 
         /// <summary>
         /// Cliente\Servidor envia mensagem ou notificação para ele mesmo.
@@ -24,10 +20,7 @@ namespace Server.SignalR.Hubs
         /// <param name="sender"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public async Task SendMessageToCaller(string sender, string message)
-            => await Clients.Caller.ReceiveMessage(sender, message, new CancellationToken());
-
-        //TODO: CRIAR METODO PARA ENVIAR PARA UM CLIENTE EM ESPECÍFICO
+        public Task SendMessageToCaller(string sender, string message);
 
         /// <summary>
         /// Cliente\Servidor envia mensagem para um grupo específico
@@ -36,23 +29,20 @@ namespace Server.SignalR.Hubs
         /// <param name="sender"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public async Task SendMessageToGroup(string group, string sender, string message)
-            => await Clients.Group(group).ReceiveMessage(sender, message, new CancellationToken());
+        public Task SendMessageToGroup(string group, string sender, string message);
 
         /// <summary>
         /// Cliente entra em um grupo\canal de comunicação específico
         /// </summary>
         /// <param name="group"></param>
         /// <returns></returns>
-        public async Task AddToGroup(string group)
-            => await Groups.AddToGroupAsync(Context.ConnectionId, group);
+        public Task AddToGroup(string group);
 
         /// <summary>
         /// Cliente sai em um grupo\canal de comunicação específico
         /// </summary>
         /// <param name="group"></param>
         /// <returns></returns>
-        public async Task RemoveFromGroup(string group)
-            => await Groups.RemoveFromGroupAsync(Context.ConnectionId, group);
+        public Task RemoveFromGroup(string group);
     }
 }
