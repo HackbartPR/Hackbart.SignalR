@@ -22,7 +22,7 @@ Quase sempre as conexões com os Hubs devem possuir alguma autenticação, mas n
 o HubService, de modo que consiga enviar mensagem para os clientes (frontend), neste caso a autenticação não se torna necessária, portanto deve existir
 alguma maneira de enviar mensagens para dentro do Hub sem estar conectado diretamente a ele ou até mesmo no caso de você possuir um controller, um job que 
 ao finalizar sua execução precisa avisar um usuário conectado ao hub que o processo foi finalizado, portanto temos a comunicação com o hub ocorrendo fora 
-da sua conexão. Utilizando o HubContext podemos enviar mensagens para o hub não estando conectado a ele.
+da sua conexão. **Utilizando o HubContext podemos enviar mensagens para o hub não estando conectado a ele**.
 
 ### O que ainda falta:
 - Criar autenticação entre o ChatHub e os clientes.
