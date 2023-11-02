@@ -1,10 +1,7 @@
 # Hackbart.SignalR
 
-Projeto ainda em construção ... [90%]
-
 Este projeto tem como objetivo servir como base para a criação de um **servidor SignalR**.
 
-### O que temos até o momento:
 Possuímos um Hub, chamado de ChatHub, **fortemente tipado** conectado a um **backplane**, o qual está utilizando o servidor Redis. 
 Este hub possuí três métodos principais de enviar mensagens que são: 
 - Enviar mensagem para todos conectados no Hub;
@@ -23,9 +20,6 @@ o HubService, de modo que consiga enviar mensagem para os clientes (frontend), n
 alguma maneira de enviar mensagens para dentro do Hub sem estar conectado diretamente a ele ou até mesmo no caso de você possuir um controller, um job que 
 ao finalizar sua execução precisa avisar um usuário conectado ao hub que o processo foi finalizado, portanto temos a comunicação com o hub ocorrendo fora 
 da sua conexão. **Utilizando o HubContext podemos enviar mensagens para o hub não estando conectado a ele**.
-
-### O que ainda falta:
-- Criar autenticação entre o ChatHub e os clientes.
 
 ### Observação
 Para utilizar o backplane deve-se comentar a linha 24 do arquivo SignalRServiceRegistration.cs e descomentar as linha 19, 20 e 21. Lembrando que para estes casos deve-se
